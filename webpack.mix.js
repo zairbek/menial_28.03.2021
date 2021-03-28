@@ -1,4 +1,5 @@
-const mix = require('laravel-mix');
+let mix = require('laravel-mix');
+mix.pug = require('laravel-mix-pug');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,6 +12,16 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/dist/js')
-    .sass('resources/sass/app.scss', 'public/dist/css')
+mix.js('resources/markup/js/app.js', 'js')
+    .sass('resources/markup/sass/app.scss', 'css')
+    .pug('resources/markup/pug/*.pug', '../../../public/dist', {
+      locals: {
+        config: { baseUrl: 'http://hse.loc/' }
+      },
+      pug: {
+        pretty: true,
+        debug: true
+      }
+    })
+    .setPublicPath('public/dist')
     .sourceMaps();

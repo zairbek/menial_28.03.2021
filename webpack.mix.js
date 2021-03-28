@@ -12,16 +12,18 @@ mix.pug = require('laravel-mix-pug');
  |
  */
 
+const pugConfig = {
+  locals: {
+    config: { baseUrl: 'http://hse.loc/' }
+  },
+  pug: {
+    pretty: true,
+    debug: true
+  }
+};
+
 mix.js('resources/markup/js/app.js', 'js')
     .sass('resources/markup/sass/app.scss', 'css')
-    .pug('resources/markup/pug/*.pug', '../../../public/dist', {
-      locals: {
-        config: { baseUrl: 'http://hse.loc/' }
-      },
-      pug: {
-        pretty: true,
-        debug: true
-      }
-    })
+    .pug('resources/markup/pug/*.pug', '../../../public/dist', pugConfig)
     .setPublicPath('public/dist')
     .sourceMaps();

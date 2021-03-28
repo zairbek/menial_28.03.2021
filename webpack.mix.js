@@ -24,7 +24,9 @@ const pugConfig = {
 
 mix.js('resources/markup/js/app.js', 'js')
   .vue()
-  .sass('resources/markup/sass/app.scss', 'css')
+  .sass('resources/markup/sass/app.scss', 'css', {}, [
+      require("tailwindcss")
+    ])
   .pug('resources/markup/pug/*.pug', '../../../public/dist', pugConfig)
   .setPublicPath('public/dist')
   .sourceMaps();

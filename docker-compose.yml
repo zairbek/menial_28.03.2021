@@ -1,0 +1,78 @@
+version: '3.8'
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  mysql:
+    driver: local
+  redis:
+    driver: local
+
+services:
+
+### PHP-FPM ##############################################
+    php-fpm:
+      build:
+        context: .
+        dockerfile: .docker/php-fpm/Dockerfile
+      volumes:
+        - .:/var/www
+      networks:
+        - backend
+      depends_on:
+        - mysql
+
+### NGINX Server #########################################
+    nginx:
+      build:
+        context: .
+        dockerfile: .docker/nginx/Dockerfile
+      volumes:
+        - ./public/:/var/www/public
+        - ./storage/app/public:/var/www/public/storage
+      ports:
+        - 80:80
+        - 443:443
+      depends_on:
+        - php-fpm
+      networks:
+        - backend
+
+### MySQL ################################################
+    mysql:
+      image: mysql:5.7
+      environment:
+        TZ: "Europe/Moscow"
+        MYSQL_DATABASE: nsu
+        MYSQL_USER: local
+        MYSQL_PASSWORD: local
+        MYSQL_ROOT_PASSWORD: 1
+      ports:
+        - 3306:3306
+      volumes:
+        - mysql:/var/lib/mysql
+      networks:
+        - backend
+
+### Redis ###############################################
+    redis:
+      build:
+        context: .
+        dockerfile: .docker/redis/Dockerfile
+      ports:
+        - 6379:6379
+      volumes:
+        - redis:/data
+      networks:
+        - backend
+
+### Redis ###############################################
+    adminer:
+      image: adminer
+      ports:
+        - 8080:8080
+      networks:
+        - backend
+

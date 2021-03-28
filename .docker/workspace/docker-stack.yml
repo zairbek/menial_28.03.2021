@@ -1,0 +1,28 @@
+version: "3.8"
+
+networks:
+  network:
+
+volumes:
+  static:
+  storage:
+  bootstrapCache:
+
+services:
+  php-fpm:
+    image: $IMAGE_WORKSPACE
+    volumes:
+      - $STORAGE_DIR/docker/storage/app/public:/var/www/storage/app/public
+      - $STORAGE_DIR/docker/storage:/var/www/storage:z
+      - $STORAGE_DIR/docker/bootstrap:/var/www/bootstrap/cache:z
+    environment:
+      - DB_HOST
+      - DB_DATABASE=$DB_NAME
+      - DB_USERNAME=$DB_LOGIN
+      - DB_PASSWORD
+      # Mail
+#      - MAIL_USERNAME=$SMTP_LOGIN
+#      - MAIL_PASSWORD=$SMTP_PASSWORD
+    networks:
+      - network
+

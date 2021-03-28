@@ -23,7 +23,8 @@ const pugConfig = {
 };
 
 mix.js('resources/markup/js/app.js', 'js')
-    .sass('resources/markup/sass/app.scss', 'css')
-    .pug('resources/markup/pug/*.pug', '../../../public/dist', pugConfig)
-    .setPublicPath('public/dist')
-    .sourceMaps();
+  .vue()
+  .sass('resources/markup/sass/app.scss', 'css')
+  .pug('resources/markup/pug/*.pug', '../../../public/dist', pugConfig)
+  .setPublicPath('public/dist')
+  .sourceMaps();

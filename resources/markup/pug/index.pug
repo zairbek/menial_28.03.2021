@@ -1,3 +1,5 @@
+include components/index
+
 doctype html
 html
   head
@@ -8,6 +10,70 @@ html
     title asdfasdfa
 
   body
-    h1 asdfasdfasdfasdfasdfas
-    #app
+
+    .container.mx-auto
+
+      .flex.flex-col.min-h-screen
+        +divider(1)
+        header
+
+          .container.flex.flex-row.px-4.h-8
+
+            .flex-auto.relative.rounded-sm.shadow-sm.h-full
+              .absolute.inset-y-0.left-0.pl-2.flex.items-center.pointer-events-none
+                span.text-gray-500
+                  +icon-ion('search', 'text-xl mt-1.5')
+              input(
+                type="text"
+                name="price"
+                id="price"
+                class="focus:ring-indigo-500 focus:border-indigo-500 block bg-gray-100 w-full h-full pl-8 pr-12 sm:text-sm border-gray-300 rounded-sm"
+                placeholder="Искать"
+                )
+
+
+            div
+              button(
+                class="text-gray-800 py-1 pl-3 inline-flex items-center"
+                )
+                +icon-ion('menu', 'text-2xl')
+
+
+        +divider(2)
+
+        main.flex-grow
+
+          .grid3x3.px-4
+            .title
+              p.font-bold.text-lg.mb-4 Популярные товары
+
+            .grid.grid-cols-3.gap-4
+              each val in [1, 2, 3]
+                .w-full
+                  a(href='#')
+                    .grid3x3-attr.w-full.relative
+                      .grid3x3-attr-image
+                        img.max-h-full.max-w-full(
+                          src='/dist/images/content/mixer.jpg'
+                          )
+                    .grid3x3-price
+                      span.text-xs.text-red-400= 4000 * val
+                .w-full
+                  a(href='#')
+                    .grid3x3-attr.w-full.relative
+                      .grid3x3-attr-image
+                        img.max-h-full.max-w-full(
+                          src='/dist/images/content/phone.jpg'
+                          )
+                    .grid3x3-price
+                      span.text-xs.text-red-400= 4000 * val
+
+
+
+  footer.outline-black.bg-gray-300 3
+
+
+
+
     script(src="/dist/js/app.js" defer)
+    script(src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js")

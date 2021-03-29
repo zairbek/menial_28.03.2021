@@ -17,6 +17,24 @@ html
         +divider(1)
         header
 
+          .container.flex.flex-row.px-4.h-10
+            div
+              button(
+                class="text-gray-800 py-1 inline-flex items-center"
+              )
+                +icon-ion('menu', 'text-2xl')
+
+            .flex-auto.text-center asdfasd
+
+            div
+              button(
+                class="text-gray-800 py-1 pl-3 inline-flex items-center"
+              )
+                +icon-ion('person-circle-outline', 'text-2xl')
+
+
+
+
           .container.flex.flex-row.px-4.h-8
 
             .flex-auto.relative.rounded-sm.shadow-sm.h-full
@@ -32,22 +50,63 @@ html
                 )
 
 
-            div
-              button(
-                class="text-gray-800 py-1 pl-3 inline-flex items-center"
-                )
-                +icon-ion('menu', 'text-2xl')
-
 
         +divider(2)
 
         main.flex-grow
+
+          +divider(2)
+
+          .slide_category.px-4
+            .slide_category-title
+              p.font-bold.text-lg.mb-4 Категории
+
+            .slide_category-desc.flex.flex-row.relative.overflow-auto
+              each val in [1, 2, 3, 4, 5, 6, 7, 8]
+                div.slide_category-desc_item.w-28.pr-4
+                  a(href='#')
+                    .slide_category-desc_item-image.h-24
+                      img.max-h-full.max-w-full.m-auto.rounded-full.ring-2.ring-white(
+                        src='/dist/images/content/phone.jpg'
+                      )
+                    .slide_category-desc_item-name
+                      span.text-sm Недвижимость
+
+
+          +divider(4)
 
           .grid3x3.px-4
             .title
               p.font-bold.text-lg.mb-4 Популярные товары
 
             .grid.grid-cols-3.gap-4
+              each val in [1, 2, 3]
+                .w-full
+                  a(href='#')
+                    .grid3x3-attr.w-full.relative
+                      .grid3x3-attr-image
+                        img.max-h-full.max-w-full(
+                          src='/dist/images/content/mixer.jpg'
+                          )
+                    .grid3x3-price
+                      span.text-xs.text-red-400= 4000 * val
+                .w-full
+                  a(href='#')
+                    .grid3x3-attr.w-full.relative
+                      .grid3x3-attr-image
+                        img.max-h-full.max-w-full(
+                          src='/dist/images/content/phone.jpg'
+                          )
+                    .grid3x3-price
+                      span.text-xs.text-red-400= 4000 * val
+
+          +divider(4)
+
+          .grid2xN.px-4
+            .title
+              p.font-bold.text-lg.mb-4 Все товары
+
+            .grid.grid-cols-2.gap-4
               each val in [1, 2, 3]
                 .w-full
                   a(href='#')

@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   purge: [
     './resources/**/*.blade.php',
@@ -12,6 +14,10 @@ module.exports = {
     fontFamily: {
       sans: ['Montserrat', 'sans-serif'],
     },
+
+    colors: {
+      current: colors.blueGray,
+    }
   },
   variants: {
     extend: {},

@@ -1,5 +1,8 @@
 let mix = require('laravel-mix');
 mix.pug = require('laravel-mix-pug');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const imageminMozjpeg = require('imagemin-mozjpeg');
 
 /*
  |--------------------------------------------------------------------------
@@ -30,3 +33,25 @@ mix.js('resources/markup/js/app.js', 'js')
   .pug('resources/markup/pug/*.pug', '../../../public/dist', pugConfig)
   .setPublicPath('public/dist')
   .sourceMaps();
+
+mix.webpackConfig({
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: '**/*',
+          to: 'images', // Laravel mix will place this in 'public/img'
+          context: 'resources/markup/images/'
+        }
+      ]
+    }),
+    new ImageminPlugin({
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      plugins: [
+        imageminMozjpeg({
+          quality: 80,
+        })
+      ]
+    })
+  ]
+})

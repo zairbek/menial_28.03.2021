@@ -1,0 +1,148 @@
+// the charset to use
+@charset "UTF-8";
+
+// the relative path to the fonts directory
+$sansSourceProPath: "../fonts/Montserrat" !default;
+
+// the font-family
+$default-font-family: 'Montserrat';
+
+// 100
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+// 200
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+// 300
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+// 400
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+// 500
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+// 600
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+// 700
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+// 800
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+// 900
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/Montserrat-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+/*
+EXAMPLE
+@font-face {
+  font-family: #{$default-font-family};
+  src: url('#{$sansSourceProPath}/sourcesanspro-regular-webfont.eot');
+  src: url('#{$sansSourceProPath}/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$sansSourceProPath}/sourcesanspro-regular-webfont.woff') format('woff'),
+  url('#{$sansSourceProPath}/sourcesanspro-regular-webfont.ttf'), format('truetype'),
+  url('#{$sansSourceProPath}/sourcesanspro-regular-webfont.svg#sourcesanspro-regular') format('svg'); // EDITED
+  font-weight: 400; // EDITED
+  font-style: normal;
+}
+*/

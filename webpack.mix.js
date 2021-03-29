@@ -25,13 +25,13 @@ const pugConfig = {
   }
 };
 
-mix.js('resources/markup/js/app.js', 'js')
+mix.js('resources/markup/js/app.js', 'dist/js')
   .vue()
-  .sass('resources/markup/sass/app.scss', 'css', {}, [
+  .sass('resources/markup/sass/app.scss', 'dist/css', {}, [
       require("tailwindcss")
     ])
   .pug('resources/markup/pug/*.pug', '../../../public/dist', pugConfig)
-  .setPublicPath('public/dist')
+  .setPublicPath('public')
   .sourceMaps();
 
 mix.webpackConfig({
@@ -40,7 +40,7 @@ mix.webpackConfig({
       patterns: [
         {
           from: '**/*',
-          to: 'images', // Laravel mix will place this in 'public/img'
+          to: 'dist/images', // Laravel mix will place this in 'public/img'
           context: 'resources/markup/images/'
         }
       ]
@@ -53,5 +53,25 @@ mix.webpackConfig({
         })
       ]
     })
-  ]
+  ],
+
+
+  module: {
+    rules: [{
+      // overwriting file-loader rule for fonts in order to remove the hash (so we can pre-load without downloading it twice)
+      test: /(\.(woff2?|ttf|eot|otf)$|font.*\.svg$)/,
+      loaders: [{
+        loader: 'file-loader',
+        options: {
+          name: (path) => {
+            if (!/node_modules|bower_components/.test(path)) {
+              return 'dist/fonts/[name].[ext]';
+            }
+            const pathUpdated = path.replace(/\\/g, '/').replace(/((.*(node_modules|bower_components))|fonts|font|assets)\//g, '');
+            return `fonts/vendor/${pathUpdated}`;
+          },
+        },
+      }],
+    }],
+  },
 })

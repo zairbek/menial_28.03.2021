@@ -1,0 +1,18 @@
+mixin gridNx2()
+  .gridNx2.px-4
+    .gridNx2-title
+      p.font-bold.text-lg.mb-4 Популярные товары
+
+    div.gridNx2-desc(
+      class="grid grid-cols-3 lg:grid-cols-4 gap-4"
+    )
+      each val in [1, 2, 3, 4, 5, 6, 1, 2]
+        .gridNx2-desc_card.w-full
+          a(href='#')
+            .gridNx2-desc_card-attr.w-full.relative
+              .gridNx2-desc_card-attr-image
+                img.max-h-full.max-w-full.z-10(
+                  src='/dist/images/content/' + val + '.jpg'
+                )
+            .gridNx2-desc_card-price.rounded-b
+              span.text-xs.text-red-400= 4000 * val

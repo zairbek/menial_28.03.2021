@@ -108,5 +108,14 @@ mixin header()
               "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
               ) Найти
 
-        .navigation_search-links.col-span-3 fffff
+        .navigation_search-links.col-span-3.grid.grid-cols-12
+          div.create_product.col-span-4.flex.justify-center
+            a.flex.h-full(href="#")
+              +icon-ion('bag-add-outline', 'text-3xl my-auto')
+          div.favorite.col-span-4.flex.justify-center
+            a.flex.h-full(href="#")
+              +icon-ion('heart-circle-outline', 'text-3xl my-auto')
+          div.account.col-span-4.flex.justify-center
+            a.flex.h-full(href="#")
+              +icon-ion('person-circle-outline', 'text-3xl my-auto')
 

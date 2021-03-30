@@ -1,0 +1,35 @@
+mixin card(item)
+  div.card(
+    class="" +
+    "w-full p-2 " +
+    "bg-white " +
+    "rounded " +
+    "relative"
+  )
+    a.card_link(
+      href='#'
+    )
+      .card_link-attr.w-full.relative
+        .card_link-attr-image
+          img.max-h-full.max-w-full.z-10(
+            src='/dist/images/content/' + item.id + '.jpg'
+          )
+      div.card_link-title
+        p.text-xs= item.title
+        +divider-y(2)
+        p.text-md.font-medium.text-red-400= item.price
+
+    div.card-add_favorite(
+      class="" +
+      "absolute " +
+      "right-1 bottom-1 " +
+      "w-6 h-6"
+    )
+      button(
+        class="w-6 h-6 focus:outline-none"
+      )
+        +icon-ion(
+          'heart-circle-outline',
+          'text-2xl ' +
+          'hover:text-favorite-700'
+          )

@@ -1,16 +1,19 @@
-mixin gridNxN()
-  .gridNxN.px-4
-    .gridNxN-title
+include ../../cards/card
+
+mixin gridNxN(mock)
+  div.gridNxN(
+    class="" +
+    "grid grid-flow-row grid-rows-auto " +
+    "px-4"
+  )
+    div.gridNxN-title
       p.font-bold.text-lg.mb-4 Все товары
 
-    .gridNxN-desc.grid.grid-cols-2.gap-4
-      each val in [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6]
-        .gridNxN-desc-card.w-full
-          a(href='#')
-            .gridNxN-desc-card_attr.w-full.relative
-              .gridNxN-desc-card_attr-image
-                img.max-h-full.max-w-full.z-10(
-                  src='/dist/images/content/' + val + '.jpg'
-                )
-            .gridNxN-desc-card_price.rounded-b
-              span.text-xs.text-red-400= 4000 * val
+    div.gridNxN-desc(
+      class="" +
+      "grid grid-cols-2 gap-4 " +
+      "md:grid-cols-3 " +
+      "lg:grid-cols-4 "
+      )
+      for item in mock
+        +card(item)

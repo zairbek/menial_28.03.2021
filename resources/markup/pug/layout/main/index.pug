@@ -1,0 +1,37 @@
+include ../../components/index
+include ./header
+include ./footer
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(href="/dist/css/app.css", rel="stylesheet")
+
+    title asdfasdfa
+
+  body(
+    class="bg-current-100"
+  )
+
+    .container.mx-auto
+      .flex.flex-col.min-h-screen
+        +divider-y(1)
+
+        +header()
+
+        +divider-y(2)
+
+        main.main.flex-grow
+          +divider-y(2)
+
+          block content
+
+        +footer()
+
+
+
+
+  script(src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js")
+  script(src="/dist/js/app.js" defer)

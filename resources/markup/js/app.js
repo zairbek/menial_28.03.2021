@@ -1,3 +1,5 @@
-import { createApp } from 'vue';
-import App from '../vue/App.vue'
-createApp(App).mount("#app")
+import { vueCreateApp } from './vue'
+import { indexCategorySwiper} from "./sliders/categories";
+
+vueCreateApp()
+indexCategorySwiper()

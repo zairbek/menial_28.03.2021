@@ -1,0 +1,37 @@
+mixin categorySlider()
+  .slide_category.px-4
+    .slide_category-title
+      p.font-bold.text-lg.mb-4 Категории
+
+    .swiper-container
+      .swiper-wrapper
+        each val in [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4,]
+          div.swiper-slide
+            a(href='#')
+              .h-24
+                img(
+                  src='/dist/images/categories/' + val + '.png'
+                )
+              .slide-name
+                span.text-sm Недвижимость
+
+      .slide_category-swiper.button_prev
+        +icon-ion('caret-back-outline', 'text-xl')
+      .slide_category-swiper.button_next
+        +icon-ion('caret-forward-outline', 'text-xl')
+
+mixin oldCategorySlider()
+  .slide_category.px-4
+    .slide_category-title
+      p.font-bold.text-lg.mb-4 Категории
+
+    .slide_category-desc.flex.flex-row.relative.overflow-auto
+      each val in [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4,]
+        div.slide_category-desc_item.w-32.pr-4
+          a(href='#')
+            .slide_category-desc_item-image.h-28
+              img.h-full.w-full.m-auto(
+                src='/dist/images/categories/' + val + '.png'
+              )
+            .slide_category-desc_item-name
+              span.text-sm Недвижимость

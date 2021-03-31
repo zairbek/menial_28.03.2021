@@ -1,5 +1,11 @@
 mixin headerMain()
-  .navigation_search.container.grid.grid-cols-12.gap-4.px-4.h-10
+  .navigation_search(
+    class="" +
+    "container " +
+    "grid grid-cols-12 gap-4 " +
+    "relative " +
+    "px-4 h-10"
+    )
     .navigation_search-logo.col-span-2.h-full
       a(href="/dist")
         img.block.h-full(
@@ -8,6 +14,8 @@ mixin headerMain()
 
     .navigation_search-category_button.col-span-2.px-1
       button(
+        id="category-show-button"
+        data-ref="navigation_search-category_button-dropdown"
         class="" +
         "col-span-2 inline-flex justify-center relative " +
         "w-full h-full pl-6 pr-1 py-2 " +
@@ -20,6 +28,78 @@ mixin headerMain()
       )
         +icon-ion('grid-outline', 'absolute left-2.5 top-2/4 transform -translate-y-2/4 text-lg')
         | Категории
+
+      div(
+        id="navigation_search-category_button-dropdown"
+        class="" +
+        "navigation_search-category_button-dropdown " +
+        "hidden " +
+        "absolute top-10 left-0 right-0 z-20 " +
+        "h-auto mb-6 " +
+        "bg-white shadow-lg rounded"
+        )
+        div.grid.grid-cols-12#tab-id-1
+          div.col-span-3
+            ul.flex.flex-col.divide.divide-y.divide-border-300
+              li(
+                class="tab"
+                data-ref="tab-0"
+              )
+                div( class="select-none flex flex-1 items-center p-2")
+                  div( class="flex flex-col w-10 h-10 justify-center items-center mr-4")
+                    a( href="#" class="block relative")
+                      img( alt="profil" src="/dist/images/content/6.jpg" class="mx-auto object-cover rounded-full h-6 w-6")
+                  div( class="flex-1 pl-1 mr-16")
+                    a( href="#" class="underline")
+                      div( class="text-gray-600 dark:text-gray-200 text-sm") Developer
+
+              li(
+                class="tab"
+                data-ref="tab-1"
+                )
+                div( class="select-none flex flex-1 items-center p-2")
+                  div( class="flex flex-col w-10 h-10 justify-center items-center mr-4")
+                    a( href="#" class="block relative")
+                      img( alt="profil" src="/dist/images/content/6.jpg" class="mx-auto object-cover rounded-full h-6 w-6")
+                  div( class="flex-1 pl-1 mr-16")
+                    a( href="#" class="underline")
+                      div( class="text-gray-600 dark:text-gray-200 text-sm") Developer
+
+
+          div.col-span-9
+            div(class="relative flex flex-col min-w-0 break-words bg-white w-full")
+              div(class="px-2 py-2 flex-auto")
+                div(class="tab-content tab-space")
+                  div(class="block" id="tab-0")
+                    div(
+                      class="grid grid-cols-12"
+                      )
+                      div(
+                        class="col-span-5"
+                        )
+                        ul.flex.flex-col
+                          li(class="select-none flex flex-1 items-center p-2 hover:bg-current-100")
+                              div( class="flex-1 pl-1 mr-16")
+                                a( href="#" class="underline")
+                                  div( class="text-gray-600 dark:text-gray-200 text-sm") Developer
+                          li(class="select-none flex flex-1 items-center p-2 hover:bg-current-100")
+                              div( class="flex-1 pl-1 mr-16")
+                                a( href="#" class="underline")
+                                  div( class="text-gray-600 dark:text-gray-200 text-sm") Developer
+
+                      div(
+                        class="col-span-7"
+                        )
+                        div(class="text-center my-12")
+                          img( class="w-auto h-48 object-cover mx-auto -mb-24" src="/dist/images/content/1.jpg" alt="Avatar Jacky")
+                          div( class="bg-white shadow-lg rounded-lg px-8 pt-32 pb-10 text-gray-400")
+                            h3(class="font-title text-gray-800 text-xl mb-3") Jacky Pout
+                            p( class="font-body") FullStack Engineer
+                            p(class="font-body text-sm mb-4") He love caramel and he hate PHP
+                            a(class="font-body text-blue-500 hover:text-gray-800" href="#") Jacky@poute.com
+
+                  div(class="hidden" id="tab-1")
+
 
 
     .navigation_search-searchbar.col-span-5
@@ -53,7 +133,7 @@ mixin headerMain()
           "text-sm font-medium text-gray-700 " +
           "hover:bg-gray-50 " +
           "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-        ) Найти
+          ) Найти
 
     .navigation_search-links.col-span-3.grid.grid-cols-12
       div.create_product.col-span-4.flex.justify-end
@@ -66,3 +146,5 @@ mixin headerMain()
         a.flex.h-full(href="#")
           +icon-ion('person-circle-outline', 'text-3xl my-auto')
 
+
+//div.col-span-9

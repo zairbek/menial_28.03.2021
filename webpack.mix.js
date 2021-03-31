@@ -21,7 +21,6 @@ const pugConfig = {
   },
   pug: {
     pretty: true,
-    debug: true
   }
 };
 

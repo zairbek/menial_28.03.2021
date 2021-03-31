@@ -1,0 +1,13 @@
+mixin headerTop()
+  .top_nav.container.flex.justify-between.px-4
+    div.text-sm.font-thin
+      span.text-gray-700 Местоположение:
+      button.relative.ml-7.underline
+        +icon-ion('compass-outline', 'text-lg absolute top-2/4 transform -translate-y-2/4 -left-5')
+        | Москва
+
+    div.text-sm
+      div
+        ul
+          li
+            button.underline Сообщение

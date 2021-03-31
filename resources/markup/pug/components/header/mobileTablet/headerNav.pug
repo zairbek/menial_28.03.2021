@@ -1,0 +1,19 @@
+mixin headerNav()
+  .mob_nav.container.flex.flex-row.px-4.h-10
+    div
+      button(
+        class="text-gray-800 py-1 inline-flex items-center"
+      )
+        +icon-ion('menu', 'text-2xl')
+
+    .flex-auto.text-center
+      a(href="/dist")
+        img.inline.h-8(
+          src="/dist/images/logo.png"
+        )
+
+    div
+      button(
+        class="text-gray-800 py-1 pl-3 inline-flex items-center"
+      )
+        +icon-ion('person-circle-outline', 'text-2xl')

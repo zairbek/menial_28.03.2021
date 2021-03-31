@@ -1,121 +1,13 @@
 mixin header()
   header.header
 
+    // FOR MOBILE AND TABLET
     div(class="lg:hidden")
+      +headerNav
+      +searchbar
 
-      .mob_nav.container.flex.flex-row.px-4.h-10
-        div
-          button(
-            class="text-gray-800 py-1 inline-flex items-center"
-          )
-            +icon-ion('menu', 'text-2xl')
-
-        .flex-auto.text-center asdfasd
-
-        div
-          button(
-            class="text-gray-800 py-1 pl-3 inline-flex items-center"
-          )
-            +icon-ion('person-circle-outline', 'text-2xl')
-
-
-      .mob_search_panel.container.flex.flex-row.px-4.h-8
-        .flex-auto.relative.rounded-sm.shadow-sm.h-full
-          .absolute.inset-y-0.left-0.pl-2.flex.items-center.pointer-events-none
-            span.text-gray-500
-              +icon-ion('search', 'text-xl mt-1.5')
-          input(
-            type="text"
-            name="price"
-            id="price"
-            class="focus:ring-indigo-500 focus:border-indigo-500 block bg-gray-100 w-full h-full pl-8 pr-12 sm:text-sm border-gray-300 rounded-sm"
-            placeholder="Искать"
-          )
-
-
-
-
+    // FOR DESKTOP
     div(class="hidden lg:block")
-      .top_nav.container.flex.justify-between.px-4
-        div.text-sm.font-thin
-          span.text-gray-700 Местоположение:
-          button.relative.ml-7.underline
-            +icon-ion('compass-outline', 'text-lg absolute top-2/4 transform -translate-y-2/4 -left-5')
-            | Москва
-
-        div.text-sm
-          div
-            ul
-              li
-                button.underline Сообщение
-
-
+      +headerTop
       +divider-y(4)
-
-      .navigation_search.container.grid.grid-cols-12.gap-4.px-4.h-10
-        .navigation_search-logo.col-span-2.h-full
-          a(href="/dist")
-            img.block.h-full(
-              src="/dist/images/logo.png"
-            )
-
-        .navigation_search-category_button.col-span-2.px-1
-          button(
-            class="" +
-            "col-span-2 inline-flex justify-center relative " +
-            "w-full h-full pl-6 pr-1 py-2 " +
-            "border border-gray-300 rounded " +
-            "shadow-sm " +
-            "bg-white " +
-            "text-sm font-medium text-gray-700 " +
-            "hover:bg-gray-50 " +
-            "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-          )
-            +icon-ion('grid-outline', 'absolute left-2.5 top-2/4 transform -translate-y-2/4 text-lg')
-            | Категории
-
-
-        .navigation_search-searchbar.col-span-5
-          .relative.rounded.shadow-sm.h-full.grid.grid-cols-12
-            .absolute.inset-y-0.left-0.pl-2.flex.items-center.pointer-events-none
-              span.text-gray-500
-                +icon-ion('search', 'text-xl mt-1.5')
-            input(
-              type="text"
-              name="price"
-              id="price"
-              class="" +
-              "block w-full h-full " +
-              "col-span-10 " +
-              "bg-gray-100 " +
-              "border border-gray-300 rounded-l " +
-              "shadow-sm " +
-              "pl-8 pr-12 " +
-              "sm:text-sm " +
-              "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 "
-              placeholder="Поиск по объявлениям"
-              autocomplete="off"
-            )
-            button(
-              class="" +
-              "col-span-2 inline-flex justify-center " +
-              "w-full px-4 py-2 " +
-              "border border-gray-300 rounded-r " +
-              "shadow-sm " +
-              "bg-white " +
-              "text-sm font-medium text-gray-700 " +
-              "hover:bg-gray-50 " +
-              "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-              ) Найти
-
-        .navigation_search-links.col-span-3.grid.grid-cols-12
-          div.create_product.col-span-4.flex.justify-end
-            a.flex.h-full(href="#")
-              +icon-ion('bag-add-outline', 'text-3xl my-auto')
-          div.favorite.col-span-4.flex.justify-end
-            a.flex.h-full(href="#")
-              +icon-ion('heart-circle-outline', 'text-3xl my-auto')
-          div.account.col-span-4.flex.justify-end
-            a.flex.h-full(href="#")
-              +icon-ion('person-circle-outline', 'text-3xl my-auto')
-
+      +headerMain

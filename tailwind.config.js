@@ -17,7 +17,9 @@ module.exports = {
 
     colors: {
       current: colors.blueGray,
-      favorite: colors.pink
+      white: colors.white,
+      favorite: colors.pink,
+      border: colors.gray,
     }
   },
   variants: {

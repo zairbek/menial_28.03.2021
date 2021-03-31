@@ -23,13 +23,13 @@ const focusEvent = (element) => {
   if (dropdownContent.classList.contains('block')) {
     dropdownContent.classList.remove('block')
     dropdownContent.classList.add('hidden')
+  } else {
+    dropdownContent.classList.remove('hidden')
+    dropdownContent.classList.add('block')
     escapeHandler(() => {
       dropdownContent.classList.remove('block')
       dropdownContent.classList.add('hidden')
     })
-  } else {
-    dropdownContent.classList.remove('hidden')
-    dropdownContent.classList.add('block')
   }
 }
 

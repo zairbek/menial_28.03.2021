@@ -1,8 +1,13 @@
 mixin headerNav()
   .mob_nav.container.flex.flex-row.px-4.h-10
-    div
+    div(
+      class='mobile_tablet_menu_toggle '
+      )
       button(
-        class="text-gray-800 py-1 inline-flex items-center"
+        class="" +
+        "inline-flex items-center " +
+        "text-gray-800 py-1 " +
+        "focus:outline-none "
       )
         +icon-ion('menu', 'text-2xl')
 
@@ -17,3 +22,11 @@ mixin headerNav()
         class="text-gray-800 py-1 pl-3 inline-flex items-center"
       )
         +icon-ion('person-circle-outline', 'text-2xl')
+
+
+
+mixin slideNav()
+  div#close-mobile_tablet_menu
+    +icon-ion('close-outline', 'text-2xl')
+  header
+    h2 Menu

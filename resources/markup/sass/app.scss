@@ -14,7 +14,7 @@
 // Components
 @import "components/categoryList/categorySlider";
 @import "components/cards/card";
-
+@import "components/header/mobileTablet/headerNav";
 
 @media (max-width: 1024px) {
   .gridNx2-desc_card:nth-child(7),

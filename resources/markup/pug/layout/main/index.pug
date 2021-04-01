@@ -15,7 +15,15 @@ html(lang='ru')
     class="bg-current-100"
   )
 
-    .container.mx-auto
+    nav(
+      id="menu"
+      )
+      +slideNav
+
+    div(
+      id="panel"
+      class="container mx-auto"
+      )
       .flex.flex-col.min-h-screen
         +divider-y(1)
 
